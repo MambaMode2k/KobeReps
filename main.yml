@@ -1,0 +1,90 @@
+#   Regarding karma checking, my aim is for the new members to rack up some sort of credibility within the community (via karma within this subreddit only),
+#   to hopefully lead them to start utilizing the central guide made for beginners first to minimalize spoonfeeding and redundancy.
+
+#   Q: How will users be able to gain karma within this subreddit in order to create a post, if all actions are restricted in the first place for newcomers?
+#   A: There will be a restriction only for SUBMISSIONS, but allow users to commment on any existing posts to gain karma in kReps.
+
+#   Main rules that the AutoModerator will manage:
+
+#   1. Accounts must be both older than 3 days and have more than 20 karma in making any type of submission. 
+#      There will be the exception of comments, where accounts must only need to be more than 3 days old and have above 15 karma in total accounting for any subreddit.
+
+#   2. Filtering/deleting & autoreplying to comments that ask stupid questions, to prevent bypassing the karma threshold by asking in a random post thru the comments section.
+
+#   Lets start!
+
+# This will restrict new users in creating any type of post except comments with its respective requirements on age and karma.
+type:
+  - submission
+  - text submission
+  - link submission
+  - gallery submission
+  - poll submission
+author:
+  combined_KobeReps_karma: < 20 # The "combined KobeReps karma" will check for karma ONLY in KobeReps
+  account_age: < 3 days
+  satisfy_any_threshold: false # This syntax will make it so both requirements must be correct (account has both 20 KobeReps karma and older than 3 days)
+action: remove
+comment: Please ensure that your account has existed for atleast 3 days old and your overall karma is above 20.
+
+---
+
+# This will restrict new users in commenting on any type of post with its respective requirements on age and karma.
+type: comment
+author:
+  combined_karma: < 20 # The "combined karma" will check for total karma even outside KobeReps. If less, they will be suggested to check r/freekarma4you.
+  account_age: < 3 days
+action: remove
+comment: Please refer to the beginners guide located at the front of the subreddit if you want to get started! Since you do not meet our requirements, try to gain karma in r/freekarma4you.
+
+---
+
+# This will help filter & redirect new users and prevent the issues as said before
+type: any
+body+title (includes, regex): ["I'm new", "I am new", "Noob here"]
+action: remove
+comment: Since you are new here, please refer to the beginners guide located at the front of the subreddit if you want to get started!
+
+---
+
+# AutoMod will scan through the body & title, checking if it contains the common noob keywords using RegEx and reply for them to go to the guides.
+# This constriction will be experimental and will not be kept if it doesn't function as intended.
+type: any
+body+title (includes, regex): ["Best batch", "Playable", "Hoopable", "Which batch is better"]
+action: filter # Set to filter just in case there is some new release that only a new seller has that no one knows about.
+action_reason: Common question
+comment: Please refer to the batch rankings and utilize the search bar. The resource is located in the central guide pinned at the top of the subreddit.
+
+---
+
+# Filtering out where/how to purchase question keywords.
+# This constriction will be experimental and will not be kept if it doesn't function as intended.
+type: any
+body+title (includes, regex): ["Where can I buy", "Where is the best Kobe", "Where can I get", "Who sells the best", "Anyone know who sells", "Has anyone bought from", "Best site", "Best website"]
+action: filter # Set to filter just in case there is some new release that only a new seller has that no one knows about.
+action_reason: Common question
+comment: | 
+  Please refer to the trusted sellers list and utilize the search bar. The resource is located in the central guide pinned at the top of the subreddit.
+  If the seller you are inquiring about is not listed, it is suggested you proceed with caution.
+
+---
+
+# Meant to filter out the basic what is agent posts.
+# This constriction will be experimental and will not be kept if it doesn't function as intended.
+type: any
+body+title (includes, regex): ["What is an agent", "What is the best agent", "Where can I get an agent"]
+action: filter # Set to filter just in case there is some new release that only a new seller has that no one knows about.
+action_reason: Common question
+comment: | 
+  Please refer to the agent guide below. The resource is located in the central guide pinned at the top of the subreddit.
+  https://www.reddit.com/r/KobeReps/comments/qp7e0u/how_to_purchase/
+
+---
+
+# To ensure clarity, AutoMod will scan for posts containing the words QC & LC, and remind the users to provide a reason which leads to their calls.
+type: submission
+title (includes, regex): ["QC", "LC"]
+comment: For commenters, please describe a reason as to why the pair results as a GL or RL.
+comment_stickied: true # Comment will essentially be pinned first and foremost above all the comments.
+
+---
