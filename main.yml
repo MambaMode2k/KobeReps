@@ -14,29 +14,31 @@
 #   Lets start!
 
 # This will restrict new users in creating any type of post except comments with its respective requirements on age and karma.
+type: submission
 author:
-  combined_comment_karma: < 1
+  comment_subreddit_karma: < 1
   account_age: < 2 days
-  satisfy_any_threshold: false # This syntax will make it so both requirements must be correct (account has commented and is older than 2 days)
+  satisfy_any_threshold: false
 action: remove
-comment: Please ensure that your account has existed for atleast 2 days and that you have commented.
+comment: Please ensure that your account has existed for atleast 2 days and that you have commented in this subreddit.
+comment_stickied: true
 
 ---
 
 # This will restrict new users in commenting on any type of post with its respective requirements on age and karma.
 type: comment
 author:
-  combined_comment_karma: < 1
+  comment_subreddit_karma: < 1
   account_age: < 2 days
-action: remove
-comment: Please refer to the beginners guide located at the front of the subreddit if you want to get started! Since you do not meet our requirements, try to gain karma in r/freekarma4you.
+comment: Please refer to https://www.reddit.com/r/KobeReps/comments/pmn85w/kobe_reps_central_hub_resources_links_beginners/ to get started!
+comment_stickied: true
 
 ---
 
 # This will help filter & redirect new users and prevent the issues as said before
-type: any
 body+title (includes, regex): ["I'm new", "I am new", "Noob here"]
 action: remove
+action_reason: Noob question
 comment: |
   Since you are new here, please refer to the central guide link below.
   https://www.reddit.com/r/KobeReps/comments/pmn85w/kobe_reps_central_hub_resources_links_beginners/
@@ -45,31 +47,30 @@ comment: |
 
 # AutoMod will scan through the body & title, checking if it contains the common noob keywords using RegEx and reply for them to go to the guides.
 # This constriction will be experimental and will not be kept if it doesn't function as intended.
-type: any
-body+title (includes, regex): ["Playable", "Hoopable", "Which batch is better"]
+body+title (includes, regex): ["Playable", "Hoopable", "Which batch is better", "Can you play"]
 action: filter # Set to filter just in case there is some new release that only a new seller has that no one knows about.
 action_reason: Common question
-comment: Please refer to the batch rankings and utilize the search bar. The resource is located in the central guide pinned at the top of the subreddit.
+comment: |
+  Please refer to the guide below and utilize the search bar.
+  https://www.reddit.com/r/KobeReps/comments/uvxb3y/can_i_play_in_reps/
 
 ---
 
 # Filtering out where/how to purchase question keywords.
 # This constriction will be experimental and will not be kept if it doesn't function as intended.
-type: any
 body+title (includes, regex): ["Where can I buy", "Where is the best", "Where can I get", "Who sells the best", "Anyone know who", "Has anyone bought from", "Best site", "Best website", "Where's the best", "Who's the best"]
-action: filter # Set to filter just in case there is some new release that only a new seller has that no one knows about.
+action: filter
 action_reason: Common question
 comment: | 
-  Please refer to the trusted sellers list and utilize the search bar. The resource is located in the central guide pinned at the top of the subreddit.
-  If the seller you are inquiring about is not listed, it is suggested you proceed with caution.
+  Please refer to the trusted sellers list and utilize the search bar. If the seller you are inquiring about is not listed, it is suggested you proceed with caution.
+  https://www.reddit.com/r/KobeReps/comments/pkrtsr/trusted_seller_list/
 
 ---
 
 # Meant to filter out the basic what is agent posts.
 # This constriction will be experimental and will not be kept if it doesn't function as intended.
-type: any
 body+title (includes, regex): ["What is an agent", "What is the best agent", "Where can I get an agent"]
-action: filter # Set to filter just in case there is some new release that only a new seller has that no one knows about.
+action: filter 
 action_reason: Common question
 comment: | 
   Please refer to the agent guide below. The resource is located in the central guide pinned at the top of the subreddit.
@@ -79,12 +80,11 @@ comment: |
 
 # Meant to filter out the basic what is agent posts.
 # This constriction will be experimental and will not be kept if it doesn't function as intended.
-type: any
-body+title (includes, regex): ["Size", "Sizing"]
+body+title (includes, regex): ["Sizing"]
 comment: | 
   Please refer to the sizing guide below. The resource is located in the central guide pinned at the top of the subreddit.
   https://www.reddit.com/r/KobeReps/comments/rauaa9/sizing_guide_and_info/
-comment_stickied: true # Will pin the sizing guide at the top
+comment_stickied: true
 
 ---
 
