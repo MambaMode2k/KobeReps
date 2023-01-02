@@ -29,18 +29,9 @@ comment_stickied: true
 type: comment
 author:
   comment_subreddit_karma: < 1
-comment: Please refer to https://www.reddit.com/r/KobeReps/comments/pmn85w/kobe_reps_central_hub_resources_links_beginners/ to get started!
-comment_stickied: true
-
----
-
-# This will restrict new users in commenting on any type of post with its respective requirements on age.
-type: comment
-author:
   account_age: < 2 days
-action: remove
-action_reason: Account too young
-comment: Looks like your account is not old enough. Please refer to https://www.reddit.com/r/KobeReps/comments/pmn85w/kobe_reps_central_hub_resources_links_beginners/ to get started!
+  satisfy_any_threshold: true
+comment: Please refer to https://www.reddit.com/r/KobeReps/comments/pmn85w/kobe_reps_central_hub_resources_links_beginners/ to get started!
 comment_stickied: true
 
 ---
