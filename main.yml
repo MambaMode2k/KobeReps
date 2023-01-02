@@ -95,3 +95,15 @@ comment: For commenters, please describe a reason as to why the pair results as 
 comment_stickied: true # Comment will essentially be pinned first and foremost above all the comments.
 
 ---
+
+type: comment
+body+title (includes, regex): ["!masterguide"]
+comment: https://www.reddit.com/r/KobeReps/comments/pb6sxt/kobe_replica_guide_list/
+
+---
+
+type: comment
+body+title (includes, regex): ["!trustedsellers"]
+comment: https://www.reddit.com/r/KobeReps/comments/pkrtsr/trusted_seller_list/
+
+---
