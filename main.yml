@@ -48,7 +48,7 @@ comment: |
 
 # AutoMod will scan through the body & title, checking if it contains the common noob keywords using RegEx and reply for them to go to the guides.
 # This constriction will be experimental and will not be kept if it doesn't function as intended.
-body+title (includes, regex): ["Playable", "Hoopable", "Which batch is better", "Can you play"]
+body+title (includes, regex): ["Playable", "Hoopable", "Can you play"]
 action: filter # Set to filter just in case there is some new release that only a new seller has that no one knows about.
 action_reason: Common question
 comment: |
