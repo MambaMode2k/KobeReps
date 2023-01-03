@@ -70,7 +70,7 @@ comment: |
 
 # Meant to filter out the basic what is agent posts.
 # This constriction will be experimental and will not be kept if it doesn't function as intended.
-body+title (includes, regex): ["What is an agent", "What is the best agent", "Where can I get an agent", "Agent question", "Get scammed"]
+body+title (includes, regex): ["What is an agent", "What is the best agent", "Where can I get an agent", "Agent question", "Get scammed", "How can I buy", "How do I buy", "How to buy"]
 action: filter
 action_reason: Common question
 comment: | 
