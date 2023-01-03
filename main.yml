@@ -31,7 +31,7 @@ author:
   comment_subreddit_karma: < 1
   account_age: < 2 days
   satisfy_any_threshold: true
-comment: Please refer to https://www.reddit.com/r/KobeReps/comments/pmn85w/kobe_reps_central_hub_resources_links_beginners/ to get started!
+comment: Please refer to https://www.reddit.com/r/KobeReps/comments/pmn85w/kobe_reps_central_hub_resources_links_beginners/ to get started and answer your basic questions!
 comment_stickied: true
 
 ---
@@ -48,7 +48,7 @@ comment: |
 
 # AutoMod will scan through the body & title, checking if it contains the common noob keywords using RegEx and reply for them to go to the guides.
 # This constriction will be experimental and will not be kept if it doesn't function as intended.
-body+title (includes, regex): ["Playable", "Hoopable", "Can you play"]
+body+title (includes, regex): ["Playable", "Hoopable", "Can you play", "Can you hoop"]
 action: filter # Set to filter just in case there is some new release that only a new seller has that no one knows about.
 action_reason: Common question
 comment: |
@@ -59,7 +59,7 @@ comment: |
 
 # Filtering out where/how to purchase question keywords.
 # This constriction will be experimental and will not be kept if it doesn't function as intended.
-body+title (includes, regex): ["Where can I buy", "Where is the best", "Where can I get", "Who sells the best", "Anyone know who", "Has anyone bought from", "Best site", "Best website", "Where's the best", "Who's the best"]
+body+title (includes, regex): ["Where can I", "Where is the best", "Where can I", "Who sells the best", "Anyone know who", "Anyone bought from", "Best site", "Best website", "Where's the best", "Who's the best", "Who has"]
 action: filter
 action_reason: Common question
 comment: | 
@@ -70,11 +70,11 @@ comment: |
 
 # Meant to filter out the basic what is agent posts.
 # This constriction will be experimental and will not be kept if it doesn't function as intended.
-body+title (includes, regex): ["What is an agent", "What is the best agent", "Where can I get an agent"]
-action: filter 
+body+title (includes, regex): ["What is an agent", "What is the best agent", "Where can I get an agent", "Agent question"]
+action: filter
 action_reason: Common question
 comment: | 
-  Please refer to the agent guide below. The resource is located in the central guide pinned at the top of the subreddit.
+  Please refer to the agent guide below. The resource is also located in the central guide pinned at the top of the subreddit.
   https://www.reddit.com/r/KobeReps/comments/qp7e0u/how_to_purchase/
 
 ---
@@ -83,28 +83,33 @@ comment: |
 # This constriction will be experimental and will not be kept if it doesn't function as intended.
 body+title (includes, regex): ["Sizing"]
 comment: | 
-  Please refer to the sizing guide below. The resource is located in the central guide pinned at the top of the subreddit.
+  Please refer to the sizing guide below. The resource is also located in the central guide pinned at the top of the subreddit.
   https://www.reddit.com/r/KobeReps/comments/rauaa9/sizing_guide_and_info/
 comment_stickied: true
 
 ---
 
+type: comment
+moderators_exempt: false
+body (regex): '!masterguide\W*(/?u/\S+)' # This means that with {{match-body-2}} it will only output the user tag (1st parenthesis) without the command. Creds to u/001Guy001
+comment: |
+  {{match-body-2}} - Please check this link: https://www.reddit.com/r/KobeReps/comments/pb6sxt/kobe_replica_guide_list/
+
+---
+
+type: comment
+moderators_exempt: false
+body (regex): '!masterguide\W*(/?u/\S+)' # This means that with {{match-body-2}} it will only output the user tag (1st parenthesis) without the command. Creds to u/001Guy001
+comment: |
+  {{match-body-2}} - Please check this link: https://www.reddit.com/r/KobeReps/comments/pkrtsr/trusted_seller_list/
+
+---
+
 # To ensure clarity, AutoMod will scan for posts containing the words QC & LC, and remind the users to provide a reason which leads to their calls.
 type: submission
-title (includes, regex): ["QC", "LC"]
-comment: For commenters, please describe a reason as to why the pair results as a GL or RL.
+flair_text (includes-word): "QC/LC"
+comment: |
+  When giving a response (Legit / Not Legit / GL / RL), please explain your reasoning as to how you came to the conclusion.
+  Responses without reasoning are NOT acceptable enough. 
+  If you are unfamiliar with the pair, DO NOT COMMENT.
 comment_stickied: true # Comment will essentially be pinned first and foremost above all the comments.
-
----
-
-type: comment
-body+title (includes, regex): ["!masterguide"]
-comment: https://www.reddit.com/r/KobeReps/comments/pb6sxt/kobe_replica_guide_list/
-
----
-
-type: comment
-body+title (includes, regex): ["!trustedsellers"]
-comment: https://www.reddit.com/r/KobeReps/comments/pkrtsr/trusted_seller_list/
-
----
