@@ -37,7 +37,7 @@ comment_stickied: true
 ---
 
 # This will help filter & redirect new users and prevent the issues as said before
-body+title (includes, regex): ["I'm new", "I am new", "Noob here"]
+body+title (includes, regex): ["I'm new", "I am new", "Noob here", "New here"]
 action: remove
 action_reason: Noob question
 comment: |
@@ -59,7 +59,7 @@ comment: |
 
 # Filtering out where/how to purchase question keywords.
 # This constriction will be experimental and will not be kept if it doesn't function as intended.
-body+title (includes, regex): ["Where can I", "Where is the best", "Where can I", "Who sells the best", "Anyone know who", "Anyone bought from", "Best site", "Best website", "Where's the best", "Who's the best", "Who has"]
+body+title (includes, regex): ["Where can I", "Where is the best", "Where I can", "Who sells the best", "Anyone know who", "Anyone bought from", "Best site", "Best website", "Where's the best", "Who's the best", "Who has"]
 action: filter
 action_reason: Common question
 comment: | 
@@ -70,11 +70,11 @@ comment: |
 
 # Meant to filter out the basic what is agent posts.
 # This constriction will be experimental and will not be kept if it doesn't function as intended.
-body+title (includes, regex): ["What is an agent", "What is the best agent", "Where can I get an agent", "Agent question"]
+body+title (includes, regex): ["What is an agent", "What is the best agent", "Where can I get an agent", "Agent question", "Get scammed"]
 action: filter
 action_reason: Common question
 comment: | 
-  Please refer to the agent guide below. The resource is also located in the central guide pinned at the top of the subreddit.
+  Please refer to the purchasing guide below. The resource is also located in the central guide pinned at the top of the subreddit.
   https://www.reddit.com/r/KobeReps/comments/qp7e0u/how_to_purchase/
 
 ---
