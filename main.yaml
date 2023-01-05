@@ -1,115 +1,89 @@
-#   Regarding karma checking, my aim is for the new members to rack up some sort of credibility within the community (via karma within this subreddit only),
-#   to hopefully lead them to start utilizing the central guide made for beginners first to minimalize spoonfeeding and redundancy.
-
-#   Q: How will users be able to gain karma within this subreddit in order to create a post, if all actions are restricted in the first place for newcomers?
-#   A: There will be a restriction only for SUBMISSIONS, but allow users to commment on any existing posts to gain karma in kReps.
-
-#   Main rules that the AutoModerator will manage:
-
-#   1. Accounts must be both older than 2 days and have more than 1 kReps comment karma in making any type of submission. 
-#      There will be the exception of comments, where accounts must only need to be more than 2 days old.
-
-#   2. Filtering/deleting & autoreplying to comments that ask stupid questions and to prevent bypassing the filters by asking in a random post thru the comments section.
-
-#   Lets start!
-
-# This will restrict new users in creating any type of post except comments with its respective requirements on age and karma.
+---
 type: submission
 author:
   comment_subreddit_karma: < 1
   account_age: < 2 days
-  satisfy_any_threshold: false
+  satisfy_any_threshold: true
 action: remove
-comment: Please ensure that your account has existed for atleast 2 days and that you have commented in this subreddit.
+comment: |
+  Accounts must have atleast **1 comment karma** (by participating in any discussion/post) and be atleast **2 days old** to submit a post. 
+  Since you are new here, please refer to https://www.reddit.com/r/KobeReps/comments/pmn85w/kobe_reps_central_hub_resources_links_beginners/ beforehand to get started.
+  These guidelines aim to reduce spam/FAQ type posts by unverified accounts that can most often than not be easily found using the search bar.
 comment_stickied: true
-
 ---
-
-# This will autoreply the central hub link for new users that have under 1 kReps karma and are less than 2 days old.
 type: comment
 author:
   comment_subreddit_karma: < 1
   account_age: < 2 days
   satisfy_any_threshold: true
-comment: Please refer to https://www.reddit.com/r/KobeReps/comments/pmn85w/kobe_reps_central_hub_resources_links_beginners/ to get started and answer your basic questions!
-comment_stickied: true
-
+message: |
+  Welcome to KobeReps! 
+  Please refer to https://www.reddit.com/r/KobeReps/comments/pmn85w/kobe_reps_central_hub_resources_links_beginners/ to get started and answer your basic questions!
 ---
-
-# This will help filter & redirect new users and prevent the issues as said before
+type: comment
+author:
+  account_age: < 2 days
+action: remove
+action_reason: Account too young
+comment: |
+  Accounts must be atleast **2 days old** to post a comment. 
+  Since you are new here, please refer to https://www.reddit.com/r/KobeReps/comments/pmn85w/kobe_reps_central_hub_resources_links_beginners/ beforehand to get started.
+  These guidelines aim to reduce spam/FAQ type posts by unverified accounts that can most often than not be easily found using the search bar.
+comment_stickied: true
+---
 body+title (includes, regex): ["I'm new", "I am new", "Noob here", "New here"]
 action: remove
 action_reason: Noob question
 comment: |
   Since you are new here, please refer to the central guide link below.
   https://www.reddit.com/r/KobeReps/comments/pmn85w/kobe_reps_central_hub_resources_links_beginners/
-
+comment_stickied: true
 ---
-
-# AutoMod will scan through the body & title, checking if it contains the common noob keywords using RegEx and reply for them to go to the guides.
-# This constriction will be experimental and will not be kept if it doesn't function as intended.
-body+title (includes, regex): ["Playable", "Hoopable", "Can you play", "Can you hoop"]
+body+title (includes, regex): ["Playable", "Hoopable", "Which batch is better", "Can you play"]
 action: filter # Set to filter just in case there is some new release that only a new seller has that no one knows about.
 action_reason: Common question
 comment: |
   Please refer to the guide below and utilize the search bar.
   https://www.reddit.com/r/KobeReps/comments/uvxb3y/can_i_play_in_reps/
-
+comment_stickied: true
 ---
-
-# Filtering out where/how to purchase question keywords.
-# This constriction will be experimental and will not be kept if it doesn't function as intended.
 body+title (includes, regex): ["Where can I", "Where is the best", "Where I can", "Who sells the best", "Anyone know who", "Anyone bought from", "Best site", "Best website", "Where's the best", "Who's the best", "Who has"]
 action: filter
 action_reason: Common question
 comment: | 
   Please refer to the trusted sellers list and utilize the search bar. If the seller you are inquiring about is not listed, it is suggested you proceed with caution.
   https://www.reddit.com/r/KobeReps/comments/pkrtsr/trusted_seller_list/
-
 ---
-
-# Meant to filter out the basic what is agent posts.
-# This constriction will be experimental and will not be kept if it doesn't function as intended.
-body+title (includes, regex): ["What is an agent", "What is the best agent", "Where can I get an agent", "Agent question", "Get scammed", "How can I buy", "How do I buy", "How to buy"]
+body+title (includes, regex): ["What is an agent", "Best agent", "Where can I get an agent", "Agent question", "Get scammed", "How can I buy", "How do I buy", "How to buy"]
 action: filter
 action_reason: Common question
 comment: | 
   Please refer to the purchasing guide below. The resource is also located in the central guide pinned at the top of the subreddit.
   https://www.reddit.com/r/KobeReps/comments/qp7e0u/how_to_purchase/
-
+comment_stickied: true
 ---
-
-# Meant to filter out the basic what is agent posts.
-# This constriction will be experimental and will not be kept if it doesn't function as intended.
 body+title (includes, regex): ["Sizing"]
 comment: | 
-  Please refer to the sizing guide below. The resource is also located in the central guide pinned at the top of the subreddit.
+  Please refer to the sizing guide below. The resource is located in the central guide pinned at the top of the subreddit.
   https://www.reddit.com/r/KobeReps/comments/rauaa9/sizing_guide_and_info/
 comment_stickied: true
-
 ---
-
 type: comment
 moderators_exempt: false
 body (regex): '!masterguide\W*(/?u/\S+)' # This means that with {{match-body-2}} it will only output the user tag (1st parenthesis) without the command. Creds to u/001Guy001
 comment: |
-  {{match-body-2}} - Please check this link: https://www.reddit.com/r/KobeReps/comments/pb6sxt/kobe_replica_guide_list/
-
+  {{match-body-2}} - https://www.reddit.com/r/KobeReps/comments/pb6sxt/kobe_replica_guide_list/
 ---
-
 type: comment
 moderators_exempt: false
-body (regex): '!masterguide\W*(/?u/\S+)' # This means that with {{match-body-2}} it will only output the user tag (1st parenthesis) without the command. Creds to u/001Guy001
+body (regex): '!trustedsellers\W*(/?u/\S+)' # This means that with {{match-body-2}} it will only output the user tag (1st parenthesis) without the command. Creds to u/001Guy001
 comment: |
-  {{match-body-2}} - Please check this link: https://www.reddit.com/r/KobeReps/comments/pkrtsr/trusted_seller_list/
-
+  {{match-body-2}} - https://www.reddit.com/r/KobeReps/comments/pkrtsr/trusted_seller_list/
 ---
-
-# To ensure clarity, AutoMod will scan for posts containing the words QC & LC, and remind the users to provide a reason which leads to their calls.
 type: submission
 flair_text (includes-word): "QC/LC"
 comment: |
   When giving a response (Legit / Not Legit / GL / RL), please explain your reasoning as to how you came to the conclusion.
-  Responses without reasoning are NOT acceptable enough. 
-  If you are unfamiliar with the pair, DO NOT COMMENT.
-comment_stickied: true # Comment will essentially be pinned first and foremost above all the comments.
+  Responses without reasoning are **NOT** acceptable. 
+  If you are unfamiliar and therefore unable to give a proper response, DO NOT COMMENT.
+comment_stickied: true
