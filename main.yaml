@@ -15,7 +15,6 @@ comment_stickied: true
 type: comment
 author:
   comment_subreddit_karma: < 1
-  account_age: < 2 days
   satisfy_any_threshold: true
 message: |
   Welcome to KobeReps! 
@@ -83,7 +82,7 @@ comment: |
   {{match-body-2}} - https://www.reddit.com/r/KobeReps/comments/pkrtsr/trusted_seller_list/
 ---
 type: submission
-flair_text (includes-word): "QC/LC"
+flair_text: "QC/LC"
 comment: |
   When giving a response (Legit / Not Legit / GL / RL), please explain your reasoning as to how you came to the conclusion.
   Responses without reasoning are **NOT** acceptable. 
