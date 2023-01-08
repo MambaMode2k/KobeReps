@@ -88,3 +88,19 @@ comment: |
   Responses without reasoning are **NOT** acceptable. 
   If you are unfamiliar and therefore unable to give a proper response, DO NOT COMMENT.
 comment_stickied: true
+---
+type: submission
+flair_text: "Buy/Sell"
+~title: ["WTS", "WTB", "WTT"]
+action: remove
+comment: |
+  When creating a buy/sell post submission, please be sure to label your title WTS, WTB or WTT as an indicator of what you are looking for.
+  If you are planning to sell, please state "timestamp included" in your title and have the timestamp & your reddit name included in your picture (by paper).
+---
+type: submission
+flair_text: "Buy/Sell"
+title: "WTS"
+~title: "Timestamp"
+action: filter
+comment: |
+  When creating a willing to sell post, please be sure to provide a timestamp. 
