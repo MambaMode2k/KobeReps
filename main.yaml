@@ -91,7 +91,7 @@ comment_stickied: true
 ---
 type: submission
 flair_text: "Buy/Sell"
-~title: ["WTS", "WTB", "WTT"]
+~title (includes): ["WTS", "WTB", "WTT"]
 action: remove
 comment: |
   When creating a buy/sell post submission, please be sure to label your title WTS, WTB or WTT as an indicator of what you are looking for.
@@ -99,8 +99,8 @@ comment: |
 ---
 type: submission
 flair_text: "Buy/Sell"
-title: "WTS"
-~title: "Timestamp"
+title (includes): "WTS"
+~body (includes, regex): ["timestamp", "tagged"]
 action: filter
 comment: |
   When creating a willing to sell post, please be sure to provide a timestamp. 
