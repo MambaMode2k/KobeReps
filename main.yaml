@@ -125,23 +125,25 @@ comment_stickied: true
 author:
     is_moderator: true
 type: comment
+is_top_level: true
 body (full-exact): "!lock"
 parent_submission:
     set_locked: true
 comment: |
-  This post has been locked due to the common question being already addressed in the pinned guides of the subreddit. 
-  Please visit https://www.reddit.com/r/KobeReps/comments/pmn85w/kobe_reps_central_hub_resources_links_beginners/.
+  This post has been locked due to the failure to abide by the rules & guidelines.
   If you have any concerns about this action, please feel free to message u/macklun . 
 comment_stickied: true
 ---
 author:
     is_moderator: true
 type: comment
+comment_stickied: true
+is_top_level: true
 body (full-exact): "!flag"
 parent_submission:
     action: filter
 comment: |
-  This post has been flagged due to a variety of reasons, which may include common question being already addressed in the pinned guides of the subreddit. 
-  Please visit https://www.reddit.com/r/KobeReps/comments/pmn85w/kobe_reps_central_hub_resources_links_beginners/.
+  This post has been flagged possibly due to a variety of reasons, ultimately to reduce spam for common questions, unwanted or irrelevant content.
+  Please visit https://www.reddit.com/r/KobeReps/comments/pmn85w/kobe_reps_central_hub_resources_links_beginners/ if you haven't already.
   If you have any concerns about this action, please feel free to message u/macklun . 
-comment_stickied: true
+---
