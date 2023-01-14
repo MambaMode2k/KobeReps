@@ -1,24 +1,16 @@
 ---
 type: submission
 author:
-  comment_subreddit_karma: < 1
   account_age: < 2 days
-  satisfy_any_threshold: true
+  combined_subreddit_karma: < 0
+  satisfy_any_threshold: false
 action: remove
 comment: |
-  Accounts must have atleast **1 comment karma** (by participating in any discussion/post) and be atleast **2 days old** to submit a post. 
+  Accounts must be atleast **2 days old** and have positive karma to submit a post. 
   Since you are new here, please refer to https://www.reddit.com/r/KobeReps/comments/pmn85w/kobe_reps_central_hub_resources_links_beginners/ beforehand to get started.
   These guidelines aim to reduce spam/FAQ type posts by unverified accounts that can most often than not be easily found using the search bar.
   For more details to why your post was removed refer to the FAQ here - https://www.reddit.com/r/KobeReps/comments/104ikoy/faq/.
 comment_stickied: true
----
-type: comment
-author:
-  comment_subreddit_karma: < 1
-  satisfy_any_threshold: true
-message: |
-  Welcome to KobeReps! 
-  Please refer to https://www.reddit.com/r/KobeReps/comments/pmn85w/kobe_reps_central_hub_resources_links_beginners/ to get started and answer your basic questions!
 ---
 type: comment
 author:
@@ -32,30 +24,38 @@ comment: |
   For more details to why your post was removed refer to the FAQ here - https://www.reddit.com/r/KobeReps/comments/104ikoy/faq/.
 comment_stickied: true
 ---
-body+title (includes, regex): ["I'm new", "I am new", "Noob here", "New here"]
+body+title (includes, regex): ["I'm new", "I am new", "New here", "Noob"]
 action: remove
 action_reason: Noob question
 comment: |
-  Since you are new here, please refer to the central guide link below.
+  Since you are new here, please refer to the central guide link below to answer your questions.
   https://www.reddit.com/r/KobeReps/comments/pmn85w/kobe_reps_central_hub_resources_links_beginners/
 comment_stickied: true
 ---
-body+title (includes, regex): ["Playable", "Hoopable", "Which batch is better", "Can you play"]
+title (includes, regex): ["Reps"]
+action: filter
+action_reason: Potential noob question
+comment: |
+  Since you are new here, please refer to the central guide link below to answer your questions.
+  https://www.reddit.com/r/KobeReps/comments/pmn85w/kobe_reps_central_hub_resources_links_beginners/
+comment_stickied: true
+---
+title (includes, regex): ["Playable", "Hoopable", "Which batch is better", "Can you play", "Good to play", "Good for basketball"]
 action: filter # Set to filter just in case there is some new release that only a new seller has that no one knows about.
 action_reason: Common question
 comment: |
-  Please refer to the guide below and utilize the search bar.
+  Please refer to the guide below and utilize the search bar to answer your question.
   https://www.reddit.com/r/KobeReps/comments/uvxb3y/can_i_play_in_reps/
 comment_stickied: true
 ---
-body+title (includes, regex): ["Where can I", "Where is the best", "Where I can", "Who sells the best", "Anyone know who", "Anyone bought from", "Best site", "Best website", "Where's the best", "Who's the best", "Who has"]
+title (includes, regex): ["Where can I", "Where is the best", "Where I can", "Who sells the best", "Anyone know who", "Anyone bought from", "Best site", "Best website", "Where's the best", "Who's the best", "Who has", "Where do I buy", "Any good"]
 action: filter
 action_reason: Common question
 comment: | 
   Please refer to the trusted sellers list and utilize the search bar. If the seller you are inquiring about is not listed, it is suggested you proceed with caution.
   https://www.reddit.com/r/KobeReps/comments/pkrtsr/trusted_seller_list/
 ---
-body+title (includes, regex): ["What is an agent", "Best agent", "Where can I get an agent", "Agent question", "Get scammed", "How can I buy", "How do I buy", "How to buy"]
+title (includes, regex): ["What is an agent", "Best agent", "Where can I get an agent", "Agent question", "Get scammed", "How can I buy", "How do I buy", "How to buy"]
 action: filter
 action_reason: Common question
 comment: | 
@@ -63,7 +63,7 @@ comment: |
   https://www.reddit.com/r/KobeReps/comments/qp7e0u/how_to_purchase/
 comment_stickied: true
 ---
-body+title (includes, regex): ["Sizing"]
+title (includes, regex): ["Sizing"]
 comment: | 
   Please refer to the sizing guide below. The resource is located in the central guide pinned at the top of the subreddit.
   https://www.reddit.com/r/KobeReps/comments/rauaa9/sizing_guide_and_info/
@@ -80,6 +80,18 @@ moderators_exempt: false
 body (regex): '!trustedsellers\W*(/?u/\S+)' # This means that with {{match-body-2}} it will only output the user tag (1st parenthesis) without the command. Creds to u/001Guy001
 comment: |
   {{match-body-2}} - https://www.reddit.com/r/KobeReps/comments/pkrtsr/trusted_seller_list/
+---
+type: comment
+moderators_exempt: false
+body (regex): '!centralhub\W*(/?u/\S+)' # This means that with {{match-body-2}} it will only output the user tag (1st parenthesis) without the command. Creds to u/001Guy001
+comment: |
+  {{match-body-2}} - https://www.reddit.com/r/KobeReps/comments/pmn85w/kobe_reps_central_hub_resources_links_beginners/
+---
+type: comment
+moderators_exempt: false
+body (regex): '!batchrank\W*(/?u/\S+)' # This means that with {{match-body-2}} it will only output the user tag (1st parenthesis) without the command. Creds to u/001Guy001
+comment: |
+  {{match-body-2}} - https://www.reddit.com/r/KobeReps/comments/qzdbbb/batch_rankings/
 ---
 type: submission
 flair_text: "QC/LC"
@@ -104,3 +116,32 @@ title (includes): "WTS"
 action: filter
 comment: |
   When creating a willing to sell post, please be sure to provide a timestamp. 
+---
+type: submission
+flair_text: "W2C"
+comment: Be sure to have used the search bar to find possible existing QCs or links to find the pair you are looking for, if you haven't already.
+comment_stickied: true
+---
+author:
+    is_moderator: true
+type: comment
+body (full-exact): "!lock"
+parent_submission:
+    set_locked: true
+comment: |
+  This post has been locked due to the common question being already addressed in the pinned guides of the subreddit. 
+  Please visit https://www.reddit.com/r/KobeReps/comments/pmn85w/kobe_reps_central_hub_resources_links_beginners/.
+  If you have any concerns about this action, please feel free to message u/macklun . 
+comment_stickied: true
+---
+author:
+    is_moderator: true
+type: comment
+body (full-exact): "!flag"
+parent_submission:
+    action: filter
+comment: |
+  This post has been flagged due to a variety of reasons, which may include common question being already addressed in the pinned guides of the subreddit. 
+  Please visit https://www.reddit.com/r/KobeReps/comments/pmn85w/kobe_reps_central_hub_resources_links_beginners/.
+  If you have any concerns about this action, please feel free to message u/macklun . 
+comment_stickied: true
