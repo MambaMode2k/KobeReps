@@ -48,14 +48,14 @@ comment: |
   https://www.reddit.com/r/KobeReps/comments/uvxb3y/can_i_play_in_reps/
 comment_stickied: true
 ---
-title (includes, regex): ["Where can I", "Where is the best", "Where I can", "Who sells the best", "Anyone know who", "Anyone bought from", "Best site", "Best website", "Where's the best", "Who's the best", "Who has", "Where do I buy", "Any good"]
+body+title (includes, regex): ["Where can I", "Where is the best", "Where I can", "Who sells the best", "Anyone know who", "Anyone bought from", "Best site", "Best website", "Where's the best", "Who's the best", "Who has", "Where do I buy", "Any good"]
 action: filter
 action_reason: Common question
 comment: | 
   Please refer to the trusted sellers list and utilize the search bar. If the seller you are inquiring about is not listed, it is suggested you proceed with caution.
   https://www.reddit.com/r/KobeReps/comments/pkrtsr/trusted_seller_list/
 ---
-title (includes, regex): ["What is an agent", "Best agent", "Where can I get an agent", "Agent question", "Get scammed", "How can I buy", "How do I buy", "How to buy"]
+body+title (includes, regex): ["What is an agent", "Best agent", "Where can I get an agent", "Agent question", "Get scammed", "How can I buy", "How do I buy", "How to buy"]
 action: filter
 action_reason: Common question
 comment: | 
